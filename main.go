@@ -45,7 +45,7 @@ func main() {
 	new_format := bimg.PNG
 
 	//inputs := chooseFilesToConvert()
-	inputs := [1]string{"/home/maximedurand/Documents/GoVistaImageConverter/test/data/valid_example.heic"}
+	inputs := [1]string{"/home/maximedurand/Documents/GoVistaImageConverter/test/data/inputs/valid_example.heic"}
 	for _, input_path := range inputs {
 		result, err := imageConvertion.ConvertImage(input_path, "", new_format)
 		if result != "" {
