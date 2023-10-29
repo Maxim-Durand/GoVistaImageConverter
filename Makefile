@@ -4,13 +4,21 @@
 TARGET_FOLDER ?=$(shell pwd)
 REPO_ROOT ?=$(shell git rev-parse --show-toplevel)
 
-EXE_NAME = "imageConverter.exe"
+
+EXE_NAME ?= "imageConverter"
+WIN_EXE_NAME ?= "$(EXE_NAME).exe"
 
 build: go.mod
-	go build $(TARGET_FOLDER)
+	go build $(REPO_ROOT)
+
+build_for_windows:
+	GOOS=windows GOARCH=386 go build -o $(WIN_EXE_NAME) $(REPO_ROOT)
 
 build_for_windows_vista:
-	GOOS=windows GOARCH=386 CGO_ENABLED=1 CC=i686-w64-mingw32-gcc go build -o $(EXE_NAME) $(TARGET_FOLDER)
-	
+	GOOS=windows GOARCH=386 CGO_ENABLED=1 CC=i686-w64-mingw32-gcc go build -o $(WIN_EXE_NAME) $(REPO_ROOT)
+
 run:
-	go run $(TARGET_FOLDER)
+	go run $(REPO_ROOT)
+
+tests:
+	cd $(REPO_ROOT)/test && go test

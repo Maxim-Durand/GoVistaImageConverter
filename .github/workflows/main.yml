@@ -1,0 +1,42 @@
+name: Main
+
+on: push
+
+jobs:
+  build:
+    runs-on: window-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install libvips
+        shell: bash
+        run: |
+          mkdir "C:\Program Files\Vips"
+          wget -P "C:\Program Files\Vips"  https://github.com/libvips/build-win64-mxe/releases/download/v8.15.0-rc1/vips-dev-w64-all-8.15.0-rc1.zip
+          tar -xf "C:\Program Files\Vips\vips-dev-w64-all-8.15.0-rc1.zip"
+          set PATH=%PATH%;C:\Program Files\Vips\vips-dev-8.15\bin
+      - name: Install Go dependencies
+        shell: bash
+        run: |
+          cd ${{ github.workspace }}
+          go get github.com/go-ole/go-ole
+          go get github.com/google/uuid
+          go get github.com/h2non/bimg
+          go get github.com/harry1453/go-common-file-dialog
+          go get golang.org/x/exp
+          go get golang.org/x/sys
+      - name: Test project
+        shell: bash
+        run: |
+          make tests
+      - name: Build for Windows Vista
+        shell: bash
+        run: |
+          make build_for_windows WIN_EXE_NAME="imageConverter.exe"
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          fail_on_unmatched_files: true
+          draft: true
+          files: |
+            imageConverter.exe
