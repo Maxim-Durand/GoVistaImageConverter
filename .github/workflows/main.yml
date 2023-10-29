@@ -39,6 +39,9 @@ jobs:
       - name: Test project
         shell: bash
         run: |
+          echo $PKG_CONFIG_PATH
+          export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:'C:\Program Files\Vips\vips-dev-8.15\lib\pkgconfig'
+          echo $PKG_CONFIG_PATH
           make tests
       - name: Build for Windows Vista
         shell: bash
