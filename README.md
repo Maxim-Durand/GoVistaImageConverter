@@ -1,16 +1,10 @@
 # GoVistaImageConverter
 
-Targeted platform: Windows Vista.
+Simple software to easily convert one or multiple images in another format.
 
-Software to convert any image to a valid JPEG.
+Targeted platform: Windows going back to Vista.
 
-# Structure 
-
-The repo organization is based on https://github.com/golang-standards/project-layout#overview
-
-# Libraries
-
-A quick state of the art shows those libraries can be used.
+# Dependencies
 
 UI lib:
 - https://github.com/andlabs/ui
