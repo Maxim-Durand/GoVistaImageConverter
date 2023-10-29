@@ -15,7 +15,10 @@ jobs:
       - name: Installing tools
         shell: bash
         run: |
-          choco install wget --no-progress       
+          choco install wget --no-progress
+          pacman -Syu  # to update the system packages
+          pacman -Sy mingw-w64-x86_64-pkg-config
+          pkg-config --version
       - name: Install libvips
         shell: bash
         run: |
