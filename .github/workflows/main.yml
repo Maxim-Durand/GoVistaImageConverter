@@ -16,10 +16,7 @@ jobs:
         shell: bash
         run: |
           choco install wget --no-progress
-          echo 'C:\msys64\usr\bin' >> $GITHUB_PATH
-          pacman -Syu  # to update the system packages
-          pacman -Sy mingw-w64-x86_64-pkg-config
-          pkg-config --version
+          choco install pkgconfiglite --no-progress
       - name: Install libvips
         shell: bash
         run: |
