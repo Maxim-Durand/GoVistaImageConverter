@@ -28,7 +28,7 @@ jobs:
       - name: Install Go dependencies
         shell: bash
         run: |
-          cd ${{ github.workspace }}
+          cd "${{ github.workspace }}"
           go get github.com/go-ole/go-ole
           go get github.com/google/uuid
           go get github.com/h2non/bimg
