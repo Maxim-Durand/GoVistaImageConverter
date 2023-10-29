@@ -15,8 +15,8 @@ jobs:
       - name: Installing tools
         shell: bash
         run: |
-          choco install wget --no-progress
-          choco install pkgconfiglite --no-progress
+          choco install -y wget --no-progress
+          choco install -y pkgconfiglite --no-progress
       - name: Install libvips
         shell: bash
         run: |
