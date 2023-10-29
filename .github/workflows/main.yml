@@ -24,7 +24,7 @@ jobs:
           cd 'C:\Program Files\Vips'
           7z x vips-dev-w64-all-8.15.0-rc1.zip -y
           ls vips-dev-8.15
-          set PATH=%PATH%;'C:\Program Files\Vips\vips-dev-8.15\bin'
+          echo 'C:\Program Files\Vips\vips-dev-8.15\bin' >> $GITHUB_PATH
       - name: Install Go dependencies
         shell: bash
         run: |
