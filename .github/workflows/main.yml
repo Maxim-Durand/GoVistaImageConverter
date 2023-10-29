@@ -21,7 +21,7 @@ jobs:
         run: |
           mkdir "C:\Program Files\Vips"
           wget -P "C:\Program Files\Vips" https://github.com/libvips/build-win64-mxe/releases/download/v8.15.0-rc1/vips-dev-w64-all-8.15.0-rc1.zip
-          cd C:\Program Files\Vips
+          cd 'C:\Program Files\Vips'
           7z e vips-dev-w64-all-8.15.0-rc1.zip
           set PATH=%PATH%;C:\Program Files\Vips\vips-dev-8.15\bin
       - name: Install Go dependencies
