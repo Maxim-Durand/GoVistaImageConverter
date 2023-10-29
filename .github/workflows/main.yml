@@ -15,7 +15,8 @@ jobs:
       - name: Installing tools
         shell: bash
         run: |
-          ls C:\msys64\usr\bin\
+          ls "C:\msys64\usr\bin\"
+          
           choco install wget --no-progress 
       - name: Install libvips
         shell: bash
