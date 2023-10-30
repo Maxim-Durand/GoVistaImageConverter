@@ -26,6 +26,11 @@ jobs:
           7z x vips-dev-w64-all-8.15.0-rc1.zip -y
           ls vips-dev-8.15
           echo 'C:\Program Files\Vips\vips-dev-8.15\bin' >> $GITHUB_PATH
+      - name: Set up MinGW
+        uses: egor-tensin/setup-mingw@v2
+        with:
+          platform: x86
+          version: 12.2.0
       - uses: actions/setup-go@v4
         with:
           go-version: '^1.21.3'
