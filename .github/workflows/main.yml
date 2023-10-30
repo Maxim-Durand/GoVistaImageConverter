@@ -36,7 +36,7 @@ jobs:
           cd "${{ github.workspace }}"
           go get github.com/go-ole/go-ole
           go get github.com/google/uuid
-          go get github.com/h2non/bimg
+          go get github.com/h2non/bimg@0fdc5cc0e1b83a1d81c2f8ff73ad9aaad614f2c7
           go get github.com/harry1453/go-common-file-dialog
           go get golang.org/x/exp
           go get golang.org/x/sys
