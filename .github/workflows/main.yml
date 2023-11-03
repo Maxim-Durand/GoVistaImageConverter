@@ -45,15 +45,16 @@ jobs:
           go get github.com/harry1453/go-common-file-dialog
           go get golang.org/x/exp
           go get golang.org/x/sys
+      - name: Build for Windows Vista
+        shell: bash
+        run: |
+          export PKG_CONFIG_PATH='C:\Program Files\Vips\vips-dev-8.15\lib\pkgconfig'
+          make build_for_windows WIN_EXE_NAME="imageConverter.exe"
       - name: Test project
         shell: bash
         run: |
           export PKG_CONFIG_PATH='C:\Program Files\Vips\vips-dev-8.15\lib\pkgconfig'
           make tests
-      - name: Build for Windows Vista
-        shell: bash
-        run: |
-          make build_for_windows WIN_EXE_NAME="imageConverter.exe"
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
